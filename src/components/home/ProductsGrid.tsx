@@ -21,7 +21,7 @@ const ProductsGrid = () => {
             Complete Signage Solutions
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            From corporate branding to safety compliance, we offer a comprehensive range of 
+            From corporate branding to safety compliance, we offer a comprehensive range of
             signage products to meet every business need.
           </p>
         </motion.div>
@@ -39,7 +39,7 @@ const ProductsGrid = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Link
-                  to={`/products/${category.slug}`}
+                  to={`/products?category=${category.id}`}
                   className="group block h-full rounded-xl border bg-card p-6 card-hover"
                 >
                   <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-accent-foreground">

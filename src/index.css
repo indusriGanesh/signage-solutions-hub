@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import "@fontsource/space-grotesk/400.css";
 @import "@fontsource/space-grotesk/500.css";
 @import "@fontsource/space-grotesk/600.css";
@@ -10,6 +6,10 @@
 @import "@fontsource/inter/500.css";
 @import "@fontsource/inter/600.css";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* 
   Signage Company Design System
   Bold industrial aesthetic with deep navy and amber accents
@@ -17,67 +17,59 @@
 
 @layer base {
   :root {
-    /* Deep navy primary - professional & trustworthy */
+    /* Brandspace Blue primary - professional & trusted */
     --background: 210 20% 98%;
-    --foreground: 222 47% 11%;
+    --foreground: 208 60% 15%;
 
-    /* Cards with subtle warmth */
+    /* Cards */
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 208 60% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 208 60% 15%;
 
-    /* Deep navy primary */
-    --primary: 222 47% 15%;
+    /* Brandspace Blue */
+    --primary: 208 60% 30%;
     --primary-foreground: 0 0% 100%;
 
-    /* Warm slate secondary */
-    --secondary: 215 20% 94%;
-    --secondary-foreground: 222 47% 11%;
+    /* Light Blue secondary */
+    --secondary: 208 20% 94%;
+    --secondary-foreground: 208 60% 15%;
 
-    --muted: 215 20% 94%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 208 20% 94%;
+    --muted-foreground: 208 15% 45%;
 
-    /* Amber accent - energy & action */
-    --accent: 38 92% 50%;
-    --accent-foreground: 222 47% 11%;
+    /* Brandspace Green accent */
+    --accent: 122 39% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 20% 88%;
-    --input: 215 20% 88%;
-    --ring: 38 92% 50%;
+    --border: 208 20% 88%;
+    --input: 208 20% 88%;
+    --ring: 122 39% 45%;
 
     --radius: 0.5rem;
 
     /* Custom tokens */
-    --navy: 222 47% 15%;
-    --navy-light: 222 35% 25%;
-    --navy-dark: 222 55% 10%;
-    --amber: 38 92% 50%;
-    --amber-light: 38 92% 60%;
-    --amber-dark: 38 92% 40%;
-    --slate-50: 210 20% 98%;
-    --slate-100: 215 20% 94%;
-    --slate-200: 215 20% 88%;
-    --slate-600: 215 16% 47%;
-    --slate-700: 215 20% 35%;
-    --slate-800: 222 35% 20%;
-    --slate-900: 222 47% 11%;
+    --brand-blue: 208 60% 30%;
+    --brand-blue-dark: 208 70% 20%;
+    --brand-green: 122 39% 45%;
+    --brand-green-light: 122 39% 55%;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 15%) 0%, hsl(222 55% 10%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(38 92% 40%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
+    /* Gradients matching logo flow */
+    --gradient-hero: linear-gradient(135deg, hsl(208 60% 30%) 0%, hsl(208 70% 20%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(122 39% 45%) 0%, hsl(122 45% 40%) 100%);
+    --gradient-brand: linear-gradient(90deg, hsl(208 60% 30%) 0%, hsl(122 39% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 99%) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.1), 0 2px 4px -2px hsl(222 47% 11% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.1), 0 4px 6px -4px hsl(222 47% 11% / 0.1);
-    --shadow-xl: 0 20px 25px -5px hsl(222 47% 11% / 0.1), 0 8px 10px -6px hsl(222 47% 11% / 0.1);
-    --shadow-amber: 0 10px 30px -10px hsl(38 92% 50% / 0.4);
+    --shadow-sm: 0 1px 2px 0 hsl(208 60% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(208 60% 15% / 0.1), 0 2px 4px -2px hsl(208 60% 15% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(208 60% 15% / 0.1), 0 4px 6px -4px hsl(208 60% 15% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(208 60% 15% / 0.1), 0 8px 10px -6px hsl(208 60% 15% / 0.1);
+    --shadow-green: 0 10px 30px -10px hsl(122 39% 45% / 0.4);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -86,46 +78,46 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 38 92% 50%;
+    --sidebar-ring: 122 39% 45%;
   }
 
   .dark {
-    --background: 222 47% 8%;
+    --background: 208 60% 10%;
     --foreground: 210 20% 98%;
 
-    --card: 222 47% 11%;
+    --card: 208 60% 15%;
     --card-foreground: 210 20% 98%;
 
-    --popover: 222 47% 11%;
+    --popover: 208 60% 15%;
     --popover-foreground: 210 20% 98%;
 
-    --primary: 38 92% 50%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 122 39% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 222 35% 20%;
+    --secondary: 208 50% 20%;
     --secondary-foreground: 210 20% 98%;
 
-    --muted: 222 35% 20%;
-    --muted-foreground: 215 16% 65%;
+    --muted: 208 50% 20%;
+    --muted-foreground: 208 15% 65%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 122 39% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 210 20% 98%;
 
-    --border: 222 35% 20%;
-    --input: 222 35% 20%;
-    --ring: 38 92% 50%;
+    --border: 208 50% 20%;
+    --input: 208 50% 20%;
+    --ring: 122 39% 45%;
 
-    --sidebar-background: 222 47% 8%;
+    --sidebar-background: 208 60% 10%;
     --sidebar-foreground: 210 20% 98%;
-    --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 222 35% 15%;
+    --sidebar-primary: 122 39% 45%;
+    --sidebar-primary-foreground: 208 60% 15%;
+    --sidebar-accent: 208 50% 20%;
     --sidebar-accent-foreground: 210 20% 98%;
-    --sidebar-border: 222 35% 20%;
-    --sidebar-ring: 38 92% 50%;
+    --sidebar-border: 208 50% 20%;
+    --sidebar-ring: 122 39% 45%;
   }
 }
 
@@ -142,12 +134,18 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading font-bold tracking-tight;
   }
 }
 
 @layer components {
+
   /* Hero section styling */
   .hero-gradient {
     background: var(--gradient-hero);
@@ -157,30 +155,34 @@
     background: var(--gradient-accent);
   }
 
+  .brand-gradient {
+    background: var(--gradient-brand);
+  }
+
   /* Card hover effects */
   .card-hover {
     @apply transition-all duration-300 ease-out;
   }
-  
+
   .card-hover:hover {
     @apply -translate-y-1;
     box-shadow: var(--shadow-xl);
   }
 
-  /* Text gradient */
+  /* Text gradient - High contrast for dark backgrounds */
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background: var(--gradient-accent);
+    background: linear-gradient(to right, #ffffff, hsl(122 39% 45%));
   }
 
-  /* Amber glow button */
+  /* Glow button */
   .btn-glow {
-    box-shadow: var(--shadow-amber);
+    box-shadow: var(--shadow-green);
     @apply transition-all duration-300;
   }
 
   .btn-glow:hover {
-    box-shadow: 0 15px 40px -10px hsl(38 92% 50% / 0.5);
+    box-shadow: 0 15px 40px -10px hsl(122 39% 45% / 0.5);
     @apply -translate-y-0.5;
   }
 
@@ -191,6 +193,25 @@
 
   /* Container */
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Scrolling animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
   }
 }
