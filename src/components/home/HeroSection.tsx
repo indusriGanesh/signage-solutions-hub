@@ -101,16 +101,24 @@ const HeroSection = () => {
           >
             <div className="relative aspect-square w-full max-w-lg">
               {/* Main Image Container */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-foreground/10 to-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10" />
+              <div className="absolute inset-0 rounded-2xl overflow-hidden border border-primary-foreground/10 shadow-2xl">
+                <img
+                  src="/hero-signage.png"
+                  alt="Premium Signage Solutions"
+                  className="h-full w-full object-cover visited:bg-transparent"
+                />
+                {/* Overlay gradient for better text contrast if needed, or just aesthetic */}
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-background/20 mix-blend-overlay" />
+              </div>
 
               {/* Floating Cards */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -left-4 top-1/4 rounded-xl bg-card p-4 shadow-xl"
+                className="absolute -left-4 top-1/4 rounded-xl bg-card/80 backdrop-blur-md border border-white/10 p-4 shadow-xl"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/20">
                     <CheckCircle className="h-5 w-5 text-accent" />
                   </div>
                   <div>
@@ -123,10 +131,10 @@ const HeroSection = () => {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -right-4 bottom-1/4 rounded-xl bg-card p-4 shadow-xl"
+                className="absolute -right-4 bottom-1/4 rounded-xl bg-card/80 backdrop-blur-md border border-white/10 p-4 shadow-xl"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/20">
                     <span className="text-lg font-bold text-accent">★</span>
                   </div>
                   <div>
@@ -135,17 +143,6 @@ const HeroSection = () => {
                   </div>
                 </div>
               </motion.div>
-
-              {/* Center content */}
-              <div className="absolute inset-8 flex flex-col items-center justify-center rounded-xl border border-primary-foreground/10 bg-primary-foreground/5">
-                <div className="text-center">
-                  <div className="mb-4 flex mx-auto items-center justify-center">
-                    <img src="/logo-white.png" alt="Brandspace India" className="h-16 w-auto" />
-                  </div>
-                  <p className="font-heading text-xl font-bold text-primary-foreground">Brandspace India</p>
-                  <p className="text-sm text-primary-foreground/60">Premium Solutions</p>
-                </div>
-              </div>
             </div>
           </motion.div>
         </div>
