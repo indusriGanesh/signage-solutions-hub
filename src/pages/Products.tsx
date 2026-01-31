@@ -111,7 +111,7 @@ const Products = () => {
     return (
         <Layout>
             {/* Header */}
-            <section className="bg-primary text-primary-foreground py-12">
+            <section className="bg-primary text-primary-foreground py-8">
                 <div className="container-custom">
                     <h1 className="text-3xl font-bold">Our Products</h1>
                 </div>
