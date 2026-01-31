@@ -28,13 +28,10 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link to="/" className="mb-4 flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent">
-                <span className="font-heading text-xl font-bold text-accent-foreground">S</span>
-              </div>
-              <span className="font-heading text-xl font-bold">SignagePro</span>
+              <img src="/logo-white.png" alt="Brandspace India" className="h-12 w-auto" />
             </Link>
             <p className="mb-6 text-sm text-primary-foreground/70">
-              Premium signage solutions for businesses of all sizes. From branding to wayfinding, 
+              Premium signage solutions for businesses of all sizes. From branding to wayfinding,
               we deliver quality craftsmanship and innovative designs.
             </p>
             <div className="flex gap-3">
@@ -78,7 +75,7 @@ const Footer = () => {
               {productCategories.slice(0, 6).map((category) => (
                 <li key={category.id}>
                   <Link
-                    to={`/products/${category.slug}`}
+                    to={`/products?category=${category.id}`}
                     className="text-sm text-primary-foreground/70 transition-colors hover:text-accent"
                   >
                     {category.name}
@@ -102,27 +99,28 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+917207377499"
                   className="flex items-start gap-3 text-sm text-primary-foreground/70 transition-colors hover:text-accent"
                 >
                   <Phone className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>+1 (234) 567-890</span>
+                  <span>+91 720 737 7499</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@signagesolutions.com"
+                  href="mailto:info@brandspaceindia.in"
                   className="flex items-start gap-3 text-sm text-primary-foreground/70 transition-colors hover:text-accent"
                 >
                   <Mail className="mt-0.5 h-4 w-4 shrink-0" />
-                  <span>info@signagesolutions.com</span>
+                  <span>info@brandspaceindia.in</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-primary-foreground/70">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
                 <span>
-                  123 Industrial Avenue<br />
-                  Business District, City 12345
+                  Plot No. 261, Road No. 78, Phase III<br />
+                  Block-III, Jubilee Hills<br />
+                  Hyderabad, Telangana 500096
                 </span>
               </li>
             </ul>

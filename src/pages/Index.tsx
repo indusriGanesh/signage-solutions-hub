@@ -1,17 +1,21 @@
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
-import ProductsGrid from "@/components/home/ProductsGrid";
-import MaterialsSection from "@/components/home/MaterialsSection";
+import FeaturesSection from "@/components/home/FeaturesSection";
 import ProcessSection from "@/components/home/ProcessSection";
+import StatsSection from "@/components/home/StatsSection";
+import IndustriesSection from "@/components/home/IndustriesSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
 
 const Index = () => {
   return (
     <Layout>
       <HeroSection />
-      <ProductsGrid />
+      <FeaturesSection />
       <ProcessSection />
-      <MaterialsSection />
+      <StatsSection />
+      <IndustriesSection />
+      <TestimonialsSection />
       <CTASection />
     </Layout>
   );
