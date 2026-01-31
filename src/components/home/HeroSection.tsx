@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
@@ -45,11 +45,11 @@ const HeroSection = () => {
 
             <h1 className="mb-6 text-4xl font-bold leading-tight text-primary-foreground md:text-5xl lg:text-6xl">
               Transform Your Space with{" "}
-              <span className="text-[#4ade80]">Professional Signage</span>
+              <span className="text-gradient">Professional Signage</span>
             </h1>
 
             <p className="mb-8 max-w-xl text-lg text-primary-foreground/70">
-              From branding and wayfinding to safety compliance and digital displays—we deliver
+              From branding and wayfinding to safety compliance and digital displays—we deliver 
               premium signage solutions that elevate your business presence.
             </p>
 
@@ -80,14 +80,8 @@ const HeroSection = () => {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" className="bg-transparent border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 shadow-none">
+              <Button asChild size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
                 <Link to="/contact">Get a Free Quote</Link>
-              </Button>
-              <Button asChild size="lg" className="bg-transparent border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 shadow-none">
-                <a href="tel:+917207377499">
-                  <Phone className="mr-2 h-4 w-4" />
-                  Call Us Now
-                </a>
               </Button>
             </motion.div>
           </motion.div>
@@ -102,7 +96,7 @@ const HeroSection = () => {
             <div className="relative aspect-square w-full max-w-lg">
               {/* Main Image Container */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-foreground/10 to-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10" />
-
+              
               {/* Floating Cards */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
@@ -139,10 +133,10 @@ const HeroSection = () => {
               {/* Center content */}
               <div className="absolute inset-8 flex flex-col items-center justify-center rounded-xl border border-primary-foreground/10 bg-primary-foreground/5">
                 <div className="text-center">
-                  <div className="mb-4 flex mx-auto items-center justify-center">
-                    <img src="/logo-white.png" alt="Brandspace India" className="h-16 w-auto" />
+                  <div className="mb-4 flex h-20 w-20 mx-auto items-center justify-center rounded-2xl bg-accent">
+                    <span className="font-heading text-4xl font-bold text-accent-foreground">S</span>
                   </div>
-                  <p className="font-heading text-xl font-bold text-primary-foreground">Brandspace India</p>
+                  <p className="font-heading text-xl font-bold text-primary-foreground">SignagePro</p>
                   <p className="text-sm text-primary-foreground/60">Premium Solutions</p>
                 </div>
               </div>

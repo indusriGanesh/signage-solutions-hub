@@ -48,12 +48,12 @@ const Contact = () => {
     setIsSubmitting(true);
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
-
+    
     toast({
       title: "Message Sent!",
       description: "Thank you for contacting us. We'll get back to you within 24 hours.",
     });
-
+    
     reset();
     setIsSubmitting(false);
   };
@@ -62,19 +62,19 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      content: "+91 720 737 7499",
-      link: "tel:+917207377499",
+      content: "+1 (234) 567-890",
+      link: "tel:+1234567890",
     },
     {
       icon: Mail,
       title: "Email",
-      content: "info@brandspaceindia.in",
-      link: "mailto:info@brandspaceindia.in",
+      content: "info@signagesolutions.com",
+      link: "mailto:info@signagesolutions.com",
     },
     {
       icon: MapPin,
       title: "Address",
-      content: "Plot No. 261, Road No. 78, Phase III, Block-III, Jubilee Hills, Hyderabad, Telangana 500096",
+      content: "123 Industrial Avenue, Business District, City 12345",
     },
     {
       icon: Clock,
@@ -83,7 +83,7 @@ const Contact = () => {
     },
   ];
 
-  const phoneNumber = "917207377499";
+  const phoneNumber = "1234567890";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello! I'm interested in your signage solutions.")}`;
 
   return (
@@ -100,7 +100,7 @@ const Contact = () => {
               Contact Us
             </h1>
             <p className="text-lg text-primary-foreground/70">
-              Ready to transform your space with professional signage?
+              Ready to transform your space with professional signage? 
               Get in touch with our team for a free consultation and quote.
             </p>
           </motion.div>
@@ -282,25 +282,18 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Map Embed */}
+              {/* Map Placeholder */}
               <div className="flex-1 overflow-hidden rounded-xl border bg-secondary">
-                <a 
-                  href="https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg80gEHNDUzajBqNKgCALACAQ&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KWN6kU51l8s7MQa9osCZngEI&daddr=Plot+No,+261,+Road+No.+78,+Phase+III,+Block-III,+Jubilee+Hills,+Hyderabad,+Telangana+500096"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-full min-h-[300px] items-center justify-center transition-colors hover:bg-secondary/80"
-                >
+                <div className="flex h-full min-h-[300px] items-center justify-center">
                   <div className="text-center">
-                    <MapPin className="mx-auto mb-4 h-12 w-12 text-primary" />
+                    <MapPin className="mx-auto mb-4 h-12 w-12 text-muted-foreground" />
                     <p className="font-medium text-foreground">Our Location</p>
                     <p className="text-sm text-muted-foreground">
-                      Plot No. 261, Road No. 78, Phase III<br />
-                      Block-III, Jubilee Hills<br />
-                      Hyderabad, Telangana 500096
+                      123 Industrial Avenue<br />
+                      Business District, City 12345
                     </p>
-                    <p className="mt-2 text-xs text-primary">Click to open in Google Maps →</p>
                   </div>
-                </a>
+                </div>
               </div>
             </motion.div>
           </div>

@@ -4,7 +4,7 @@ import { ArrowRight, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
-  const phoneNumber = "917207377499";
+  const phoneNumber = "1234567890";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello! I'm interested in your signage solutions.")}`;
 
   return (
@@ -30,7 +30,7 @@ const CTASection = () => {
             Ready to Transform Your Space?
           </h2>
           <p className="mb-8 text-lg text-primary-foreground/70">
-            Let's discuss your signage needs. Our team of experts is ready to help you
+            Let's discuss your signage needs. Our team of experts is ready to help you 
             create impactful visual solutions for your business.
           </p>
 
@@ -41,9 +41,9 @@ const CTASection = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-
-            <Button asChild size="lg" className="bg-transparent border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 shadow-none">
-              <a href="tel:+917207377499">
+            
+            <Button asChild size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
+              <a href="tel:+1234567890">
                 <Phone className="mr-2 h-4 w-4" />
                 Call Us Now
               </a>
