@@ -232,7 +232,7 @@ const Products = () => {
                                                 </div>
 
                                                 <div className="p-4 flex flex-col flex-grow items-center text-center">
-                                                    <h3 className="font-semibold text-lg leading-tight group-hover:text-accent transition-colors">
+                                                    <h3 className="font-semibold text-base leading-tight group-hover:text-accent transition-colors">
                                                         {item.name}
                                                     </h3>
                                                 </div>
