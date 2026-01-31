@@ -131,7 +131,7 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-primary-foreground/10">
         <div className="container-custom flex flex-col items-center justify-between gap-4 py-6 text-sm text-primary-foreground/60 md:flex-row">
-          <p>© {currentYear} SignagePro. All rights reserved.</p>
+          <p>© {currentYear} Brand Space. All rights reserved.</p>
           <div className="flex gap-6">
             <Link to="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-accent transition-colors">Terms of Service</Link>
