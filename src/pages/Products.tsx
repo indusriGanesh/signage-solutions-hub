@@ -106,6 +106,23 @@ const Products = () => {
     };
 
     const filteredItems = getFilteredItems();
+
+    // Group items by subcategory (description field contains subcategory name)
+    const getGroupedItems = () => {
+        const grouped: { [key: string]: { item: ProductItem; categorySlug: string }[] } = {};
+        
+        filteredItems.forEach(({ item, categorySlug }) => {
+            const subcategory = item.description || "Other";
+            if (!grouped[subcategory]) {
+                grouped[subcategory] = [];
+            }
+            grouped[subcategory].push({ item, categorySlug });
+        });
+        
+        return grouped;
+    };
+
+    const groupedItems = getGroupedItems();
     const activeLabel = activeCategory === "all" ? "All Products" : (CATEGORY_FILTERS.find(c => c.id === activeCategory)?.name || "Products");
 
     return (
@@ -200,46 +217,57 @@ const Products = () => {
                         </div>
 
                         {filteredItems.length > 0 ? (
-                            <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                                <AnimatePresence mode="wait">
-                                    {filteredItems.map(({ item, categorySlug }, index) => {
-                                        const itemSlug = slugify(item.name);
-                                        return (
-                                            <motion.div
-                                                key={`${categorySlug}-${itemSlug}`} // Ensure unique key
-                                                initial={{ opacity: 0, scale: 0.95 }}
-                                                animate={{ opacity: 1, scale: 1 }}
-                                                transition={{ duration: 0.2, delay: index * 0.05 }}
-                                                onClick={() => navigate(`/products/${categorySlug}/${itemSlug}`)}
-                                                className="group cursor-pointer overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm hover:shadow-md transition-all h-full flex flex-col"
-                                            >
-                                                {/* Image Placeholder */}
-                                                <div className="aspect-[4/3] bg-secondary/20 relative overflow-hidden flex items-center justify-center">
-                                                    {item.image ? (
-                                                        <img
-                                                            src={item.image}
-                                                            alt={item.name}
-                                                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                                        />
-                                                    ) : (
-                                                        <div className="bg-accent/5 p-8 rounded-full">
-                                                            <ImageIcon className="h-8 w-8 text-accent/40" />
-                                                        </div>
-                                                    )}
+                            <div className="space-y-8">
+                                {Object.entries(groupedItems).map(([subcategory, items]) => (
+                                    <div key={subcategory}>
+                                        {/* Subcategory Heading */}
+                                        <h3 className="text-lg font-semibold text-foreground mb-4 pb-2 border-b border-border">
+                                            {subcategory}
+                                        </h3>
+                                        
+                                        <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                                            <AnimatePresence mode="wait">
+                                                {items.map(({ item, categorySlug }, index) => {
+                                                    const itemSlug = slugify(item.name);
+                                                    return (
+                                                        <motion.div
+                                                            key={`${categorySlug}-${itemSlug}`}
+                                                            initial={{ opacity: 0, scale: 0.95 }}
+                                                            animate={{ opacity: 1, scale: 1 }}
+                                                            transition={{ duration: 0.2, delay: index * 0.05 }}
+                                                            onClick={() => navigate(`/products/${categorySlug}/${itemSlug}`)}
+                                                            className="group cursor-pointer overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm hover:shadow-md transition-all h-full flex flex-col"
+                                                        >
+                                                            {/* Image Placeholder */}
+                                                            <div className="aspect-[4/3] bg-secondary/20 relative overflow-hidden flex items-center justify-center">
+                                                                {item.image ? (
+                                                                    <img
+                                                                        src={item.image}
+                                                                        alt={item.name}
+                                                                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                                    />
+                                                                ) : (
+                                                                    <div className="bg-accent/5 p-8 rounded-full">
+                                                                        <ImageIcon className="h-8 w-8 text-accent/40" />
+                                                                    </div>
+                                                                )}
 
-                                                    {/* Hover Overlay */}
-                                                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                                </div>
+                                                                {/* Hover Overlay */}
+                                                                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                            </div>
 
-                                                <div className="p-4 flex flex-col flex-grow items-center text-center">
-                                                    <h3 className="font-semibold text-base leading-tight group-hover:text-accent transition-colors">
-                                                        {item.name}
-                                                    </h3>
-                                                </div>
-                                            </motion.div>
-                                        );
-                                    })}
-                                </AnimatePresence>
+                                                            <div className="p-4 flex flex-col flex-grow items-center text-center">
+                                                                <h3 className="font-semibold text-base leading-tight group-hover:text-accent transition-colors">
+                                                                    {item.name}
+                                                                </h3>
+                                                            </div>
+                                                        </motion.div>
+                                                    );
+                                                })}
+                                            </AnimatePresence>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         ) : (
                             <div className="flex flex-col items-center justify-center py-20 text-center border-2 border-dashed rounded-xl">
