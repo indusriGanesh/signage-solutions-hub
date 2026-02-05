@@ -5,8 +5,7 @@ import {
     Menu,
     ChevronRight,
     Filter,
-    ImageIcon,
-    Eye
+    ImageIcon
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import SEOHead from "@/components/common/SEOHead";
@@ -15,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { productCategories, ProductCategory, ProductItem } from "@/data/products";
 import { useState, useEffect } from "react";
 import { cn, slugify } from "@/lib/utils";
-import QuickViewModal from "@/components/products/QuickViewModal";
+
 
 const CATEGORY_FILTERS = [
     { name: "Branding & Identification", id: "branding" },
@@ -43,7 +42,7 @@ const Products = () => {
     const [activeCategory, setActiveCategory] = useState<string>("all");
     const [searchQuery, setSearchQuery] = useState("");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [quickViewProduct, setQuickViewProduct] = useState<{ item: ProductItem; categorySlug: string; categoryName: string } | null>(null);
+    
     const navigate = useNavigate();
 
     // Sync with URL
@@ -269,21 +268,6 @@ const Products = () => {
                                                                 <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                                             </div>
 
-                                                            {/* Quick View Button */}
-                                                            <button
-                                                                onClick={(e) => {
-                                                                    e.stopPropagation();
-                                                                    setQuickViewProduct({
-                                                                        item,
-                                                                        categorySlug,
-                                                                        categoryName: categoryInfo?.name || ""
-                                                                    });
-                                                                }}
-                                                                className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-background/90 backdrop-blur-sm rounded-full p-2 shadow-md hover:bg-background z-10"
-                                                                aria-label="Quick view"
-                                                            >
-                                                                <Eye className="h-4 w-4 text-foreground" />
-                                                            </button>
 
                                                             <div 
                                                                 onClick={() => navigate(`/products/${categorySlug}/${itemSlug}`)}
@@ -320,14 +304,6 @@ const Products = () => {
                     </main>
                 </div>
             </div>
-            {/* Quick View Modal */}
-            <QuickViewModal
-                product={quickViewProduct?.item || null}
-                categorySlug={quickViewProduct?.categorySlug || ""}
-                categoryName={quickViewProduct?.categoryName || ""}
-                isOpen={!!quickViewProduct}
-                onClose={() => setQuickViewProduct(null)}
-            />
         </Layout>
     );
 };
