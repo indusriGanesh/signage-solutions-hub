@@ -87,7 +87,7 @@ const Footer = () => {
                   to="/products"
                   className="text-sm font-medium text-accent hover:underline"
                 >
-                  View All →
+                  View All &rarr;
                 </Link>
               </li>
             </ul>
